@@ -5,6 +5,6 @@ import java.util.*;
 public class Main {
     static List<String> ans = new ArrayList<>();
     public static void main(String[] args) {
-
+        System.out.println("Started");
     }
 }
