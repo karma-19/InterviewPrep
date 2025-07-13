@@ -23,7 +23,9 @@ public class StreamPractice {
    */
         System.out.println("Maximum element : " + list.stream().sorted((a, b) -> Integer.compare(b, a)).findFirst().get());
         System.out.println("Maximum element using max : " + list.stream().max((a, b) -> a-b).get());
+        System.out.println("Minimum element using max : " + list.stream().max((a, b) -> b-a).get());
         System.out.println("Minimum element using min : " + list.stream().min((a, b) -> a-b).get());
+        System.out.println("Maximum element using min : " + list.stream().min((a, b) -> b-a).get());
 
 
         /*
@@ -37,22 +39,19 @@ public class StreamPractice {
 ### 3. **Find the average of numbers in a list.**
    - Write a program to find the average of numbers in a list using the Stream API.
 
-
-        System.out.println(
-                list.stream()
-                        .reduce((a, b) -> {
-                            // a is the sum so far, b is the next element
-                            return new int[]{a[0] + b, a[1] + 1}; // Increment sum and count
-                        })
-                        .map(result -> (double) result[0] / result[1])
-
-        );
- */
+*/
+        System.out.println("Average in stream: " + list.stream().reduce((sum , element) -> sum += element).get() / list.size());
+        System.out.println("Average in stream: " + list.stream().mapToInt(Integer::intValue).average());//min, max, sum etc...
   /*
 
 
 ### 4. **Find the first element greater than a given number.**
    - Given a list of integers and a number `n`, use the Stream API to find the first element that is greater than `n`.
+   */
+        int given = 5;
+        System.out.println(list.stream().mapToInt(Integer::intValue));
+
+        /*
 
 ### 5. **Remove all duplicates from a list of strings.**
    - Given a list of strings, use the Stream API to return a new list with all duplicates removed.
